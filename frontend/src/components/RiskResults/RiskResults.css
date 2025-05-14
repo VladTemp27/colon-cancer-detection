@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Instrument Sans', sans-serif;
+  background-color: #f0f0f0;
+}
+
+.result-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../../assets/Background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+}
+
+.result-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.result-box {
+  position: relative; 
+  z-index: 2;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #13155877;
+  border-radius: 0.5rem;
+}
+
+/* ---------------------- Section Styles ---------------------- */
+
+/* Header Section */
+.result-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #F7C644;
+}
+
+/* ---------------------- Results Styles ---------------------- */
+
+/* Results Section */
+.risk-status {
+    color: #811212;
+    font-size: 2rem;
+    background-color: #D9D9D9;
+    margin: 0px;
+    text-align: center;
+}
+
+.risk-details {
+    color: #FFFFFF;
+}
+
+/* ---------------------- Submit Button ---------------------- */
+.detect-button {
+  position: relative;
+  background-color: #F7C644;
+  color: black;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 1230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.detect-button:hover {
+  background-color: #c7a138;
+}
+
+.button-icon {
+  width: 30px;
+  height: 30px;
+}
