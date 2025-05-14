@@ -80,6 +80,12 @@ body {
   background-size: 1rem;
 }
 
+.input-gender option:hover,
+.input-gender option:focus {
+  background-color: #FFFFFF;
+  color: #ffffff;
+}
+
 .input-age {
   width: 300px;
 }
@@ -90,7 +96,6 @@ body {
 
 /* Lifestyle Section */
 .lifestyle-section{
-  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -112,7 +117,6 @@ body {
 
 /* Medical History Section */
 .medical-history-section {
-  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -141,11 +145,11 @@ body {
   padding: 1rem;
   width: 100%;
   max-width: 500px;
+  font-size: 0.85rem;
 }
 
 /* Nutrition Intake Section */
 .nutrition-intake-section {
-  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
   max-width: 1200px;
