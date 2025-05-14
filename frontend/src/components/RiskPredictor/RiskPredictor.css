@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Instrument Sans', sans-serif;
+  background-color: #f0f0f0;
+}
+
+.risk-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../../assets/Background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.risk-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.form-box {
+  position: relative; 
+  z-index: 2;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  padding-bottom: 5rem;
+}
+
+/* ---------------------- Section Styles ---------------------- */
+
+/* Header Section */
+.form-header {
+  background-color: #090A36;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.form-title {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 15px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Personal Information Section */
+.personal-info-section {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.personal-info-section .form-section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+
+}
+
+.input-gender {
+  width: 400px;
+}
+
+.input-age {
+  width: 300px;
+}
+
+.input-bmi {
+  width: 404px;
+}
+
+/* Lifestyle Section */
+.lifestyle-section{
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.lifestyle-section .form-section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+.input-lifestyle {
+  width: 400px;
+}
+
+/* Medical History Section */
+.medical-history-section {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.medical-history-section .form-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.input-pre-existing {
+  width: 650px;
+}
+
+.medical-history-section .checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #F7C644;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Nutrition Intake Section */
+.nutrition-intake-section {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  max-width: 1200px;
+}
+
+.nutrition-intake-section .form-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------------------- Form Input Styles ---------------------- */
+.input-field {
+  background-color: #F7C644;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem;
+}
+
+.input-field:focus {
+  outline: none;
+}
+
+.row-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.label {
+  font-weight: 500;
+  margin-right: auto;
+}
+
+/* ---------------------- Submit Button ---------------------- */
+.submit-button {
+  position: relative;
+  float: right;
+  background-color: #090A36;
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.submit-button:hover {
+  background-color: #11124e;
+}
