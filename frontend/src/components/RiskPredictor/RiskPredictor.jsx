@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RiskPredictor.css';
 
 export default function RiskPredictor() {
@@ -18,6 +19,8 @@ export default function RiskPredictor() {
     vitaminC: ''
   });
 
+  const navigate = useNavigate();
+
   const handleInputChange = (field, value) => {
     setFormData({
       ...formData,
@@ -26,8 +29,7 @@ export default function RiskPredictor() {
   };
 
   const handleSubmit = () => {
-    alert('Risk assessment calculation would happen here');
-    console.log('Form data submitted:', formData);
+    navigate('/risk-results');
   };
 
   return (
