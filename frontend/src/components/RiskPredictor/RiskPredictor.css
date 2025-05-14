@@ -73,6 +73,11 @@ body {
 
 .input-gender {
   width: 400px;
+  appearance: none;
+  background-image: url('../../assets/Arrow.png');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
 }
 
 .input-age {
@@ -98,6 +103,11 @@ body {
 
 .input-lifestyle {
   width: 400px;
+  appearance: none;
+  background-image: url('../../assets/Arrow.png');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
 }
 
 /* Medical History Section */
@@ -115,6 +125,11 @@ body {
 
 .input-pre-existing {
   width: 650px;
+  appearance: none;
+  background-image: url('../../assets/Arrow.png');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
 }
 
 .medical-history-section .checkbox-group {
