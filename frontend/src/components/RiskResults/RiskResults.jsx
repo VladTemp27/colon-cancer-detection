@@ -57,7 +57,7 @@ export default function RiskResults() {
         <h1 className="result-title">Results:</h1>
 
         <div className="risk-status">
-          <h2>{riskStatus ? `${riskStatus} of Colorectal Cancer` : 'No Risk Data Available'}</h2>
+          <h2>{riskStatus ? `Patient is ${riskStatus}` : 'No Risk Data Available'}</h2>
         </div>
 
         <div className="risk-details">
