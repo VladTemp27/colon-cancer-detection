@@ -1,7 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ImageIcon from '../../assets/Upload.png';
 import BackIcon from '../../assets/Back.png';
+import Loading from '../Loading/Loading';
 import './CancerDetection.css';
 
 export default function CancerDetection() {
@@ -10,60 +13,66 @@ export default function CancerDetection() {
   const [imagePreview, setImagePreview] = useState(null);
   const [fileName, setFileName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [detectionResult, setDetectionResult] = useState(null);
+  const [showLoadingScreen, setShowLoadingScreen] = useState(false);
 
   const handleImage = (field, file) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      setImagePreview(reader.result);
-      setFileName(file.name);
-    };
-    if (file) {
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImagePreview(reader.result);
+        setFileName(file.name);
+      };
       reader.readAsDataURL(file);
+    } else {
+      toast.error('Please upload a valid image file.');
+      setImagePreview(null);
+      setFileName('');
     }
   };
 
-  // TODO: Change this code to where it will detect the cancer results
+  // TODO: This is just a simulation of the detection process, please change it to the actual API call.
   const handleDetection = async () => {
     if (!imagePreview) {
-      alert('Please upload an image first.');
+      toast.error('Please upload an image first.');
       return;
     }
 
     setIsLoading(true);
+    setShowLoadingScreen(true);
+
     try {
-      const response = await fetch('', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ image: imagePreview }),
-      });
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      if (!response.ok) {
-        throw new Error('Failed to detect tumor.');
-      }
+      const scannedImage = 'https://via.placeholder.com/300x300.png?text=Scanned+Image';
+      setImagePreview(scannedImage);
 
-      const result = await response.json();
-      setDetectionResult(result);
+      const detectionResult = {
+        tumorDetected: true,
+        confidence: 95,
+      };
 
       navigate('/cancer-results', {
         state: {
-          imageData: imagePreview,
-          detectionResult: result,
+          imageData: scannedImage,
+          detectionResult: detectionResult,
         },
       });
     } catch (error) {
       console.error('Error detecting tumor:', error);
-      alert('An error occurred while detecting the tumor.');
+      toast.error('An error occurred while detecting the tumor.');
     } finally {
       setIsLoading(false);
+      setShowLoadingScreen(false);
     }
   };
 
   const handleBack = () => {
     navigate('/risk-results');
   };
+
+  if (showLoadingScreen) {
+    return <Loading />;
+  }
 
   return (
     <div className="image-container">

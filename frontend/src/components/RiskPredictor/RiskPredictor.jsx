@@ -100,13 +100,32 @@ export default function RiskPredictor() {
     return newErrors;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length === 0) {
-      toast.success('Form submitted successfully!');
-      console.log('Form Data:', formData);
-      navigate('/risk-results');
+      try {
+        // TODO: Change to the actual API endpoint URL
+        const response = await fetch('Sample API Endpoint', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to submit form data.');
+        }
+
+        const result = await response.json();
+        console.log('API Response:', result);
+
+        navigate('/risk-results', { state: { result } });
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        toast.error('An error occurred while submitting the form.');
+      }
     } else {
       // Generalized error message
       toast.error('Please fix the errors in the form.');
