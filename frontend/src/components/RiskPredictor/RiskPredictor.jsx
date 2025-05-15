@@ -63,8 +63,8 @@ export default function RiskPredictor() {
     if (!formData.lifestyle && touchedFields.lifestyle) {
       newErrors.lifestyle = 'Please select a lifestyle.';
     }
-    if ((!formData.ethnicity || !isNaN(formData.ethnicity)) && touchedFields.ethnicity) {
-      newErrors.ethnicity = 'Please enter a valid ethnicity (letters only).';
+    if (!formData.ethnicity && touchedFields.ethnicity) {
+      newErrors.ethnicity = 'Please select an ethnicity.';
     }
 
     // Medical History Validation
@@ -189,13 +189,17 @@ export default function RiskPredictor() {
               <option value="sedentary">Sedentary</option>
               <option value="smoker">Smoker</option>
             </select>
-            <input
-              type="text"
-              placeholder="Ethnicity"
-              className={`input-field ${errors.ethnicity ? 'input-error' : ''}`}
+            <select
+              className={`input-field input-ethnicity ${errors.ethnicity ? 'input-error' : ''}`}
               value={formData.ethnicity}
               onChange={(e) => handleInputChange('ethnicity', e.target.value)}
-            />
+            >
+              <option value="" disabled>Ethnicity</option>
+              <option value="african_american">African American</option>
+              <option value="asian">Asian</option>
+              <option value="caucasian">Caucasian</option>
+              <option value="hispanic">Hispanic</option>
+            </select>
           </div>
         </div>
 
