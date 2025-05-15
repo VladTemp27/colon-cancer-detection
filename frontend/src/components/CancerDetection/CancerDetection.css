@@ -64,7 +64,8 @@ body {
   margin-top: 1rem;
   border-radius: 0.5rem;
   background-color: #F7C6448F;
-  padding: 5rem;
+  padding: 2rem;
+  cursor: pointer;
 }
 
 .upload-label {
@@ -72,13 +73,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   text-align: center;
+  cursor: pointer;
 }
 
 .upload-icon {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
+  margin-bottom: 0.5rem;
+}
+
+.preview-icon {
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 
 /* ---------------------- Scan Button ---------------------- */
