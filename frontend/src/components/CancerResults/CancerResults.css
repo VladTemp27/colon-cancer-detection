@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Instrument Sans', sans-serif;
+  background-color: #f0f0f0;
+}
+
+.predictedResults-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../../assets/Background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+}
+
+.predictedResults-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.predictedResults-box {
+  position: relative; 
+  z-index: 2;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #13155877;
+  border-radius: 0.5rem;
+}
+
+/* ---------------------- Section Styles ---------------------- */
+
+/* Header Section */
+.predictedResults-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #F7C644;
+}
+
+/* ---------------------- Results Styles ---------------------- */
+
+/* Results Section */
+.predictedResults-status {
+    color: #811212;
+    font-size: 2rem;
+    background-color: #D9D9D9;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.predictedResults-status h2 {
+  margin: 0; /* Removes all margins */
+}
+
+.predictedResults-details {
+    color: #FFFFFF;
+}
+
+/* Preview Section */
+.predictedResults-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.predictedResults-image {
+  width: 450px;
+  height: 450px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+/* ---------------------- Back Button ---------------------- */
+
+.back-button-results {
+  position: absolute;
+  top: 0.5rem; 
+  left: 0.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.back-button-results:hover {
+  transform: scale(1.1);
+}
