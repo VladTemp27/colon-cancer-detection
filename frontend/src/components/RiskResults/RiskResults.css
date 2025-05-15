@@ -64,7 +64,7 @@ body {
     color: #FFFFFF;
 }
 
-/* ---------------------- Submit Button ---------------------- */
+/* ---------------------- Detect Button ---------------------- */
 .detect-button {
   position: relative;
   background-color: #F7C644;
@@ -91,4 +91,23 @@ body {
 .button-icon {
   width: 30px;
   height: 30px;
+}
+
+/* ---------------------- Back Button ---------------------- */
+
+.back-button {
+  position: absolute;
+  top: 0.5rem; 
+  left: 0.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
 }

@@ -182,7 +182,7 @@ export default function RiskPredictor() {
 
         {/* Submit */}
         <button className="submit-button" onClick={handleSubmit}>
-          Predict Now
+          PREDICT NOW
         </button>
       </div>
     </div>
