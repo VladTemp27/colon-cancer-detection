@@ -56,8 +56,12 @@ body {
     color: #811212;
     font-size: 2rem;
     background-color: #D9D9D9;
-    margin: 0px;
+    margin: 1rem 0;
     text-align: center;
+}
+
+.risk-status h2 {
+  margin: 0; /* Removes all margins */
 }
 
 .risk-details {
