@@ -143,7 +143,6 @@ export default function RiskPredictor() {
       preExistingCondition_2,
       preExistingCondition_3,
       preExistingCondition_4,
-      preExistingCondition_5
     ]
   };
 }
