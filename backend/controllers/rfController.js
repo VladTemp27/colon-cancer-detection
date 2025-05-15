@@ -1,17 +1,17 @@
 const modelService = require('../services/modelService');
 
-exports.predict = async (req, res) => {
+exports.predictRandomForest = async (req, res) => {
   try {
     // Ensure model is loaded
     if (!modelService.isLoaded()) {
-      return res.status(503).json({ error: 'Model not loaded yet' });
+      return res.status(503).json({ error: 'Random Forest model not loaded yet' });
     }
     const inputData = req.body;
     const prediction = await modelService.runInference(inputData);
     res.json({ prediction });
   } catch (err) {
-    console.error('Prediction error:', err);
+    console.error('Random Forest prediction error:', err);
     console.error(err?.stack);
-    res.status(500).json({ error: 'Prediction failed' });
+    res.status(500).json({ error: 'Random Forest prediction failed' });
   }
 };

@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const predictController = require('../controllers/predictController');
+const rfController = require('../controllers/rfController');
 
-// POST /api/predict
-router.post('/', predictController.predict);
+// POST /api/rf-predict
+router.post('/', rfController.predictRandomForest);
 
 module.exports = router;

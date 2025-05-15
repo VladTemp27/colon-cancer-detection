@@ -1,4 +1,7 @@
 const express = require('express');
-const router = express.Router();
+const rfRouter = require('./routes/predict');
 
-module.exports = router;
+module.exports = function(app) {
+  // Use the more specific random forest prediction route
+  app.use('/api/rf-predict', rfRouter);
+};
