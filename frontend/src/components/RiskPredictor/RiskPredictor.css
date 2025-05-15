@@ -184,6 +184,12 @@ body {
   margin-right: auto;
 }
 
+/* ---------------------- Form Input Styles ---------------------- */
+
+.input-error {
+  border: 1px solid red;
+}
+
 /* ---------------------- Submit Button ---------------------- */
 .submit-button {
   position: relative;
