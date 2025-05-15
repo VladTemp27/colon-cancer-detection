@@ -14,7 +14,7 @@ export default function RiskResults() {
   console.log('RiskResults mounted. formData:', formData, 'result:', result);
   useEffect(() => {
     if (typeof result === 'number') {
-      setRiskStatus(result === 1 ? 'High Risk' : 'Low Risk');
+      setRiskStatus(result === 1 ? 'At Risk' : 'Not at Risk');
       console.log('Setting riskStatus based on result:', result);
     } else {
       setRiskStatus('Unknown Risk');
