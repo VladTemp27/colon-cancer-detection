@@ -59,16 +59,18 @@ exports.runInference = async (inputData) => {
   if (!inputMeta) {
     throw new Error('Model input metadata not found');
   }
-  const inputType = inputMeta.type;
-  let tensor;
-  if (inputType === 'int64') {
-    tensor = new ort.Tensor('int64', BigInt64Array.from(inputArray.map(v => BigInt(Math.round(v)))), [1, inputArray.length]);
-  } else {
-    tensor = new ort.Tensor('float32', Float32Array.from(inputArray), [1, inputArray.length]);
-  }
+  // Log input array and input metadata for debugging
+  console.log('Received input array:', inputArray);
+  console.log('Input array length:', inputArray.length);
+  console.log('All model input names:', inputNames);
+  console.log('All model input metadata:', inputMetadata);
+  // Always use float32 for input tensor for compatibility
+  const tensor = new ort.Tensor('float32', Float32Array.from(inputArray), [1, inputArray.length]);
   const feeds = { [inputName]: tensor };
   const results = await session.run(feeds);
   const output = results[Object.keys(results)[0]];
+  // Log prediction output for debugging
+  console.log('Raw model output:', output);
   // Convert BigInt(s) to Number(s) if needed
   let prediction = output.data;
   if (typeof prediction === 'bigint') {
@@ -82,5 +84,6 @@ exports.runInference = async (inputData) => {
       prediction = prediction[0];
     }
   }
+  console.log('Final prediction:', prediction);
   return prediction;
 };

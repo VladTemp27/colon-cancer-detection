@@ -100,18 +100,65 @@ export default function RiskPredictor() {
     return newErrors;
   };
 
+  function mapFormDataToModelInput(formData) {
+  // Gender: only 'male' is 1, else 0
+  const gender_1 = formData.gender === 'male' ? 1 : 0;
+
+  // Lifestyle: one-hot for 'active', 'moderate', 'sedentary', 'smoker'
+  const lifestyle_1 = formData.lifestyle === 'active' ? 1 : 0;
+  const lifestyle_2 = formData.lifestyle === 'moderate' ? 1 : 0;
+  // (If you have more categories, add more variables)
+
+  // Ethnicity: one-hot for 'asian', 'african_american', 'caucasian', 'hispanic'
+  const ethnicity_1 = formData.ethnicity === 'asian' ? 1 : 0;
+  const ethnicity_2 = formData.ethnicity === 'african_american' ? 1 : 0;
+  // (If you have more categories, add more variables)
+
+  // Family history: boolean to 1/0
+  const familyHistory_1 = formData.familyHistory === true ? 1 : 0;
+
+  // Pre-existing conditions: one-hot for 'diabetes', 'hypertension', 'obesity', 'none'
+  const preExistingCondition_1 = formData.preExistingCondition === 'diabetes' ? 1 : 0;
+  const preExistingCondition_2 = formData.preExistingCondition === 'hypertension' ? 1 : 0;
+  const preExistingCondition_3 = formData.preExistingCondition === 'obesity' ? 1 : 0;
+  const preExistingCondition_4 = formData.preExistingCondition === 'none' ? 1 : 0;
+
+  return {
+    input: [
+      Number(formData.age),
+      Number(formData.bmi),
+      Number(formData.carbohydrates),
+      Number(formData.protein),
+      Number(formData.fats),
+      Number(formData.iron),
+      Number(formData.vitaminA),
+      Number(formData.vitaminC),
+      gender_1,
+      lifestyle_1,
+      lifestyle_2,
+      ethnicity_1,
+      ethnicity_2,
+      familyHistory_1,
+      preExistingCondition_1,
+      preExistingCondition_2,
+      preExistingCondition_3,
+      preExistingCondition_4,
+      preExistingCondition_5
+    ]
+  };
+}
+
   const handleSubmit = async () => {
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length === 0) {
       try {
-        // TODO: Change to the actual API endpoint URL
-        const response = await fetch('Sample API Endpoint', {
+        const response = await fetch('/api/predict', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(mapFormDataToModelInput(formData)),
         });
 
         if (!response.ok) {
@@ -121,8 +168,7 @@ export default function RiskPredictor() {
         const result = await response.json();
         console.log('API Response:', result);
 
-        navigate('/risk-results', { state: { result } });
-      } catch (error) {
+        navigate('/risk-results', { state: { result: result.prediction, formData } });      } catch (error) {
         console.error('Error submitting form:', error);
         toast.error('An error occurred while submitting the form.');
       }

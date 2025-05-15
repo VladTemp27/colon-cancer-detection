@@ -8,45 +8,27 @@ export default function RiskResults() {
   const location = useLocation();
   const navigate = useNavigate();
   const formData = location.state?.formData;
+  const result = location.state?.result;
   const [riskStatus, setRiskStatus] = useState('');
 
-  // TODO: Change this code to where it will detect the cancer results
+  console.log('RiskResults mounted. formData:', formData, 'result:', result);
   useEffect(() => {
-    const fetchRiskStatus = async () => {
-      if (!formData) {
-        setRiskStatus('Unknown Risk');
-        return;
-      }
-
-      try {
-        const response = await fetch('', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to calculate risk.');
-        }
-
-        const result = await response.json();
-        setRiskStatus(result.riskStatus);
-      } catch (error) {
-        console.error('Error calculating risk:', error);
-        setRiskStatus('Error calculating risk');
-      }
-    };
-
-    fetchRiskStatus();
-  }, [formData]);
+    if (typeof result === 'number') {
+      setRiskStatus(result === 1 ? 'High Risk' : 'Low Risk');
+      console.log('Setting riskStatus based on result:', result);
+    } else {
+      setRiskStatus('Unknown Risk');
+      console.log('Result is not a number, setting riskStatus to Unknown Risk.');
+    }
+  }, [result]);
 
   const handleDetection = () => {
+    console.log('Detect Malignant/Benign button clicked.');
     navigate('/cancer-detection');
   };
 
   const handleBack = () => {
+    console.log('Back button clicked.');
     navigate('/risk-predictor');
   };
 
@@ -65,7 +47,7 @@ export default function RiskResults() {
           <ul>
             <li>Age: {formData?.age}</li>
             <li>Gender: {formData?.gender}</li>
-            <li>BMI: {formData?.BMI}</li>
+            <li>BMI: {formData?.bmi}</li>
             <li>Lifestyle: {formData?.lifestyle}</li>
             <li>Ethnicity: {formData?.ethnicity}</li>
             <li>CRC Family History: {formData?.familyHistory ? 'Yes' : 'No'}</li>
