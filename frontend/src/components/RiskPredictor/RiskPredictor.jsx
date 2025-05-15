@@ -122,7 +122,7 @@ export default function RiskPredictor() {
   const preExistingCondition_2 = formData.preExistingCondition === 'hypertension' ? 1 : 0;
   const preExistingCondition_3 = formData.preExistingCondition === 'obesity' ? 1 : 0;
   const preExistingCondition_4 = formData.preExistingCondition === 'none' ? 1 : 0;
-
+  const preExistingCondition_5 = 0;
   return {
     input: [
       Number(formData.age),
@@ -143,6 +143,7 @@ export default function RiskPredictor() {
       preExistingCondition_2,
       preExistingCondition_3,
       preExistingCondition_4,
+      preExistingCondition_5
     ]
   };
 }
