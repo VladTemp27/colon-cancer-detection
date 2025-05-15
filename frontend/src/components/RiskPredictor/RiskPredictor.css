@@ -107,7 +107,16 @@ body {
 }
 
 .input-lifestyle {
-  width: 400px;
+  width: 600px;
+  appearance: none;
+  background-image: url('../../assets/Arrow.png');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+}
+
+.input-ethnicity {
+  width: 584px;
   appearance: none;
   background-image: url('../../assets/Arrow.png');
   background-repeat: no-repeat;
