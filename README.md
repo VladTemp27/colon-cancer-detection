@@ -2,7 +2,19 @@
 
 ## GitHub Repository / Agent  
 [GitHub](https://github.com/VladTemp27/colon-cancer-detection/tree/main)
-
+## How to Run
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+### Backend
+```
+cd backend
+pip install requirements.txt
+uvicorn main:app --reload
+```
 ---
 
 ## Datasets
@@ -12,6 +24,7 @@
 - [Colorectal Histology MHIST (Google Drive)](https://drive.google.com/drive/folders/1YbERCSrZiumkr5mrjHHfO-PTzPkSyvhG?usp=sharing)
 
 ---
+
 
 ## Analytics & Machine Learning Notebooks
 
