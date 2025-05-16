@@ -1,7 +1,7 @@
 # Amalzen – Colorectal Cancer Detection on Weakly Labeled Histopathological Whole Slide Images and Lifestyle-Based Risk Prediction using Dual-Modal Deep Learning and Machine Learning Techniques
 
 ## GitHub Repository / Agent  
-[GitHub](https://github.com/VladTemp27/colon-cancer-detection/tree/main)
+- [GitHub](https://github.com/VladTemp27/colon-cancer-detection/tree/main)
 ## How to Run
 ### Frontend
 Note: use node version 22.15.0
