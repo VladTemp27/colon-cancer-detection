@@ -6,6 +6,8 @@ import os
 from utils.preprocess import preprocess_image
 from tensorflow.keras.models import load_model
 from utils.random_forest_service import RandomForestModel
+from io import BytesIO
+from PIL import Image
 
 app = FastAPI()
 
@@ -46,14 +48,16 @@ async def keras_predict(file: UploadFile = File(...)):
         raise HTTPException(status_code=503, detail="Keras model not loaded")
     try:
         file.file.seek(0)
-        img = preprocess_image(file.file)
+        img_bytes = file.file.read()
+        pil_img = Image.open(BytesIO(img_bytes)).convert('RGB')
+        img = preprocess_image(pil_img)
         preds = keras_model.predict(img)
         pred_class = int(np.argmax(preds, axis=1)[0])
         confidence = float(np.max(preds))
         return {"class": pred_class, "confidence": confidence}
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Image processing error: {str(e)}")
-
+    
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
