@@ -4,12 +4,14 @@
 [GitHub](https://github.com/VladTemp27/colon-cancer-detection/tree/main)
 ## How to Run
 ### Frontend
+Note: use node version v22.15.0
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 ### Backend
+Note: use python version 3.12.3
 ```
 cd backend
 pip install requirements.txt
