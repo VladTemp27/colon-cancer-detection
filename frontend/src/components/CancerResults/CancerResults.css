@@ -68,6 +68,20 @@ body {
     color: #FFFFFF;
 }
 
+.predictedResults-confidence {
+  font-size: 0.95em;
+  margin-top: 0.5em;
+  color: #555;
+}
+
+.predictedResults-filename {
+  font-size: 0.85em;
+  color: #888;
+  margin-top: 0.25em;
+  text-align: center;
+  word-break: break-all;
+}
+
 /* Preview Section */
 .predictedResults-preview {
   display: flex;

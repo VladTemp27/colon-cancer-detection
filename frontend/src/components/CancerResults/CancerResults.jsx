@@ -7,6 +7,7 @@ export default function CancerResults() {
   const navigate = useNavigate();
   const imageData = location.state?.imageData;
   const detectionResult = location.state?.detectionResult;
+  const fileName = location.state?.fileName;
 
   const handleBack = () => {
     navigate('/cancer-detection');
@@ -18,12 +19,16 @@ export default function CancerResults() {
 
         <h1 className="predictedResults-title">Results:</h1>
 
-        {/* TODO: Change this to the actual tumor detected */}
         <div className="predictedResults-status">
           {detectionResult?.tumorDetected ? (
             <h2>Tumor Detected</h2>
           ) : (
             <h2>No Tumor Detected</h2>
+          )}
+          {typeof detectionResult?.confidence === 'number' && (
+            <div className="predictedResults-confidence">
+              <strong>Confidence:</strong> {detectionResult.confidence}%
+            </div>
           )}
         </div>
 
@@ -34,6 +39,9 @@ export default function CancerResults() {
             <p>No image data available</p>
           )}
         </div>
+        {fileName && (
+          <div className="predictedResults-filename">{fileName}</div>
+        )}
       </div>
 
       {/* Back Button */}

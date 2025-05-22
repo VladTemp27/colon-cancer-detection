@@ -153,7 +153,7 @@ export default function RiskPredictor() {
 
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const response = await fetch('/rf-predict', {
+        const response = await fetch('/predict', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

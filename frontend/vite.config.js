@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:5000',
-      '/rf-predict': 'http://localhost:8000',
+      '/predict': 'http://localhost:8000',
+      '/classify': 'http://localhost:8000',
     },
   },
 });
