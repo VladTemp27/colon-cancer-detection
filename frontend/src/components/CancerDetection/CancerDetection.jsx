@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,7 +8,6 @@ import Loading from '../Loading/Loading';
 import './CancerDetection.css';
 
 export default function CancerDetection() {
-  const location = useLocation();
   const navigate = useNavigate();
   const [imagePreview, setImagePreview] = useState(null);
   const [fileName, setFileName] = useState('');
@@ -30,7 +29,6 @@ export default function CancerDetection() {
     }
   };
 
-  // TODO: This is just a simulation of the detection process, please change it to the actual API call.
   const handleDetection = async () => {
     if (!imagePreview) {
       toast.error('Please upload an image first.');
@@ -41,20 +39,43 @@ export default function CancerDetection() {
     setShowLoadingScreen(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Get the file from the file input
+      const fileInput = document.getElementById('file-input');
+      const file = fileInput && fileInput.files && fileInput.files[0];
+      if (!file) {
+        toast.error('No file selected.');
+        setIsLoading(false);
+        setShowLoadingScreen(false);
+        return;
+      }
 
-      const scannedImage = 'https://via.placeholder.com/300x300.png?text=Scanned+Image';
-      setImagePreview(scannedImage);
+      // Prepare form data
+      const formData = new FormData();
+      formData.append('file', file);
 
+      // Call backend API
+      const response = await fetch('http://localhost:8000/classify', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to classify image');
+      }
+      const result = await response.json();
+
+      // Map backend response to CancerResults expected format
       const detectionResult = {
-        tumorDetected: true,
-        confidence: 95,
+        tumorDetected: result.class === 1,
+        confidence: Math.round(result.confidence * 100), // confidence as percentage
+        raw: result,
       };
 
       navigate('/cancer-results', {
         state: {
-          imageData: scannedImage,
+          imageData: imagePreview,
           detectionResult: detectionResult,
+          fileName: file.name,
         },
       });
     } catch (error) {
