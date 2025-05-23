@@ -23,7 +23,6 @@ uvicorn main:app --reload
 
 - [Colorectal Cancer Dietary and Lifestyle Dataset (Kaggle)](https://www.kaggle.com/datasets/ziya07/colorectal-cancer-dietary-and-lifestyle-dataset)  
 - [Colorectal Histology MNIST (Kaggle)](https://www.kaggle.com/datasets/kmader/colorectal-histology-mnist)  
-- [Colorectal Histology MHIST (Google Drive)](https://drive.google.com/drive/folders/1YbERCSrZiumkr5mrjHHfO-PTzPkSyvhG?usp=sharing)
 
 ---
 
