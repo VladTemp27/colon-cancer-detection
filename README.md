@@ -1,4 +1,4 @@
-# Amalzen – Colorectal Cancer Detection on Weakly Labeled Histopathological Whole Slide Images and Lifestyle-Based Risk Prediction using Dual-Modal Deep Learning and Machine Learning Techniques
+# Amalzen – Colorectal Tissue Classification of Weakly Labeled Histopathological Tiled Images and Lifestyle-Based Risk Prediction Using Deep Learning and Machine Learning Techniques
 
 ## GitHub Repository / Agent  
 - [GitHub](https://github.com/VladTemp27/colon-cancer-detection/tree/main)
@@ -26,7 +26,6 @@ uvicorn main:app --reload
 
 ---
 
-
 ## Analytics & Machine Learning Notebooks
 
 - [Descriptive Analytics](https://colab.research.google.com/drive/1t7aARq_ImuCGufl3Gq2JvPOpogyZvQCa?usp=sharing)
@@ -34,3 +33,10 @@ uvicorn main:app --reload
 - [Random Forest](https://colab.research.google.com/drive/1bIjBNiNW9V4qExuzKiuUXIDxzWeEGT1T?usp=sharing)
 - [Logistic Regression with SMOTE](https://colab.research.google.com/drive/16muc61jXxwdZDebkLklOLIT15sjkUPjs?usp=sharing)
 - [Random Forest with SMOTE](https://colab.research.google.com/drive/1bqiKzjovsJASZOTmtru9A3kqqvwWTSee?usp=sharing)
+
+  ---
+
+## Documents
+- [Manuscript](https://docs.google.com/document/d/1ioD405FRGMIjDNz_HAvPvs6MFI8nAEwBJr5FS3JodVA/edit?tab=t.dhwdldb3npbo)
+- [Presentation Material](https://www.canva.com/design/DAGniB7FG-M/OT0aPYlyBLYD3yv525YuPA/edit)
+- [Consolidated Peer Evaluation](https://docs.google.com/document/d/1biVigewRt0iGnKHpsd8zs1NMuurwsGQhxJ0rovObvCk/edit?tab=t.0)
